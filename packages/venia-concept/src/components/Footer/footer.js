@@ -7,7 +7,7 @@ import { useFooter } from '@magento/peregrine/lib/talons/Footer/useFooter';
 
 import Logo from '@magento/venia-ui/lib/components/Logo';
 import { useStyle } from '@magento/venia-ui/lib/classify';
-import defaultClasses from '@magento/venia-ui/lib/components/Footer/footer.css';
+import defaultClasses from './footer.css';
 import { DEFAULT_LINKS, LOREM_IPSUM } from '@magento/venia-ui/lib/components/Footer/sampleData';
 
 const Footer = props => {
@@ -50,7 +50,7 @@ const Footer = props => {
             <div className={classes.links}>
                     <div className={classes.link}>
                         <Link to="/foo">
-                            <span className={classes.label}>Foo Demo Page</span>
+                            <span className={classes.my_custom_link}>Foo Demo Page</span>
                         </Link>
                     </div>
                 {linkGroups}
