@@ -1,0 +1,17 @@
+:global .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: unset;
+    border: 2px solid #000;
+    background: transparent;
+    opacity: 1;
+}
+
+:global .swiper-pagination-bullet:hover {
+    cursor: pointer;
+    background: #222;
+}
+
+:global .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #222;
+}

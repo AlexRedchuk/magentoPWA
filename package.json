@@ -118,6 +118,7 @@
     "@fortawesome/free-regular-svg-icons": "~5.15.4",
     "@fortawesome/free-solid-svg-icons": "~5.15.4",
     "@fortawesome/react-fontawesome": "~0.1.15",
-    "postcss": "~8.3.6"
+    "postcss": "~8.3.6",
+    "swiper": "6"
   }
 }
