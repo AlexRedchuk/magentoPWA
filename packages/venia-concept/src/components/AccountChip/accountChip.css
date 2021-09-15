@@ -1,0 +1,15 @@
+.root {
+    align-items: center;
+    column-gap: 0.5rem;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 1fr;
+}
+
+.loader {
+    composes: indicator from '~@magento/venia-ui/lib/components/LoadingIndicator/indicator.css';
+}
+
+.my_text {
+    text-transform: uppercase;
+}
