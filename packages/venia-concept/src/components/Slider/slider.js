@@ -8,7 +8,6 @@ SwiperCore.use([ Autoplay, Keyboard, Mousewheel, Navigation, Pagination ]);
 import './slider.css';
 
 const MySwiper = (props) => {
-    console.log(props);
     const { children, cssClasses = [], autoplay, autoplaySpeed, infinite, showArrows, showDots} = props;
     const classes = useStyle(defaultClasses, props.classes);
     const sliderSettings = {

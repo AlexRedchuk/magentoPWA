@@ -1,8 +1,8 @@
-import React, { Fragment, Suspense } from 'react';
+import React, {Fragment, Suspense, useEffect, useRef} from 'react';
 import { shape, string } from 'prop-types';
 import { Link, Route } from 'react-router-dom';
 
-import Logo from '@magento/venia-ui/lib/components/Logo';
+import Logo from '../Logo';
 import AccountTrigger from './accountTrigger';
 import CartTrigger from '@magento/venia-ui/lib/components/Header/cartTrigger';
 import NavTrigger from '@magento/venia-ui/lib/components/Header/navTrigger';
@@ -12,15 +12,33 @@ import { useHeader } from '@magento/peregrine/lib/talons/Header/useHeader';
 import resourceUrl from '@magento/peregrine/lib/util/makeUrl';
 
 import { useStyle } from '@magento/venia-ui/lib/classify';
-import defaultClasses from '@magento/venia-ui/lib/components/Header/header.css';
+import defaultClasses from './header.css';
 import PageLoadingIndicator from '@magento/venia-ui/lib/components/PageLoadingIndicator';
 import StoreSwitcher from '@magento/venia-ui/lib/components/Header/storeSwitcher';
 import CurrencySwitcher from '@magento/venia-ui/lib/components/Header/currencySwitcher';
 import MegaMenu from '@magento/venia-ui/lib/components/MegaMenu';
+import { useIntl } from 'react-intl';
 
 const SearchBar = React.lazy(() => import('@magento/venia-ui/lib/components/SearchBar'));
 
 const Header = props => {
+    const headerRef = useRef(null);
+    const classes = useStyle(defaultClasses, props.classes);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            entries => {
+                if (headerRef.current) {
+                    headerRef.current.classList.toggle(classes.sticky, entries[0].intersectionRatio < 1);
+                }
+            },
+            {threshold: []}
+        );
+
+        if (headerRef.current) {
+            observer.observe(headerRef.current);
+        }
+    }, [classes.sticky]);
 
     const {
         handleSearchTriggerClick,
@@ -29,10 +47,15 @@ const Header = props => {
         isPageLoading,
         isSearchOpen,
         searchRef,
-        searchTriggerRef
+        searchTriggerRef,
+        logoData,
+        logoError,
+        logoLoading
     } = useHeader();
 
-    const classes = useStyle(defaultClasses, props.classes);
+    const { formatMessage } = useIntl();
+
+
     const rootClass = isSearchOpen ? classes.open : classes.closed;
     const searchBarFallback = (
         <div className={classes.searchFallback} ref={searchRef}>
@@ -60,7 +83,7 @@ const Header = props => {
                     <CurrencySwitcher />
                 </div>
             </div>
-            <header className={rootClass}>
+            <header ref={headerRef} className={rootClass}>
                 <div className={classes.toolbar}>
                     <div className={classes.primaryActions}>
                         <NavTrigger />
@@ -74,7 +97,28 @@ const Header = props => {
                         to={resourceUrl('/')}
                         className={classes.logoContainer}
                     >
-                        <Logo classes={{ logo: classes.logo }} />
+                        {
+                            !logoLoading ?
+                                <Fragment>
+                                    {(!logoError && logoData) ? (
+                                        <Logo
+                                           data={logoData}
+                                        />
+                                    ) : (
+                                        <Logo
+
+                                            alt={formatMessage({ defaultMessage: 'Drexel', id: 'logo.title' })}
+                                            classes={{logo: classes.logo, image: classes.image}}
+                                            height={46}
+                                            logo={'dron'}
+                                            title={formatMessage({ defaultMessage: 'Drexel', id: 'logo.title' })}
+                                            width={176}
+                                        />
+                                    )}
+                                </Fragment>: null
+                        }
+
+
                     </Link>
                     <MegaMenu />
                     <div className={classes.secondaryActions}>

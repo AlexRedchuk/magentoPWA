@@ -1,9 +1,8 @@
-    import React from 'react';
+import React from 'react';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
-import { useStyle } from '../../classify';
-import Image from '../Image';
-import logo from './VeniaLogo.svg';
+import Image from "@magento/venia-ui/lib/components/Image";
+
 
 /**
  * A component that renders a logo in the header.
@@ -15,21 +14,19 @@ import logo from './VeniaLogo.svg';
  *
  * @returns {React.Element} A React component that displays a logo.
  */
-const Logo = props => {
-    const { height, width } = props;
-    const classes = useStyle({}, props.classes);
+const Logo = ({data}) => {
+    const { base_media_url, header_logo_src, logo_alt, logo_height, logo_width  } = data;
     const { formatMessage } = useIntl();
 
-    const title = formatMessage({ id: 'logo.title', defaultMessage: 'Venia' });
+    const title = formatMessage({ id: 'logo.title', defaultMessage: logo_alt });
 
     return (
         <Image
             alt={title}
-            classes={{ image: classes.logo }}
-            height={height}
-            src={logo}
+            height={logo_height}
+            src={`${base_media_url}logo/${header_logo_src}`}
             title={title}
-            width={width}
+            width={logo_width}
         />
     );
 };
