@@ -13,6 +13,7 @@ export const ProductsFragment = gql`
     fragment ProductsFragment on Products {
         items {
             id
+            brand
             name
             price_range {
                 maximum_price {
@@ -22,6 +23,7 @@ export const ProductsFragment = gql`
                     }
                 }
             }
+            product_brand
             sku
             small_image {
                 url

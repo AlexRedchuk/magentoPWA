@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 
 export const ProductDetailsFragment = gql`
     fragment ProductDetailsFragment on ProductInterface {
+        brand
         __typename
         categories {
             id
@@ -33,6 +34,7 @@ export const ProductDetailsFragment = gql`
                 }
             }
         }
+        product_brand
         sku
         small_image {
             url
@@ -77,6 +79,7 @@ export const ProductDetailsFragment = gql`
                         label
                         position
                     }
+
                     sku
                     stock_status
                     price {

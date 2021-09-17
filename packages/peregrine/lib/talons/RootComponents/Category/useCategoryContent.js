@@ -19,7 +19,6 @@ import DEFAULT_OPERATIONS from './categoryContent.gql';
  */
 export const useCategoryContent = props => {
     const { categoryId, data, pageSize = 6 } = props;
-
     const operations = mergeOperations(DEFAULT_OPERATIONS, props.operations);
 
     const {
