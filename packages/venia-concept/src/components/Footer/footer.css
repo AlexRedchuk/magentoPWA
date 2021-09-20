@@ -16,6 +16,22 @@
     width: 100%;
 }
 
+/* Custom styles */
+
+.my_custom_link {
+    color: var(--drexel-global-link-color);
+}
+
+.socialLink {
+    transition: ease-in-out .4s;
+    font-size: 16px ;
+}
+
+.socialLink:hover{
+    color: #222;
+    cursor: pointer;
+}
+
 @media (max-width: 960px) {
     .root {
         grid-template-areas: 'links' 'brand';
@@ -139,8 +155,3 @@
     }
 }
 
-/* Custom styles */
-
-.my_custom_link {
-    color: var(--drexel-global-link-color);
-}

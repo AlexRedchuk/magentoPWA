@@ -70,19 +70,19 @@ const Footer = props => {
                     </p>
                     <ul className={classes.socialLinks}>
                         <li>
-                            <FontAwesomeIcon height={20} icon={faBehance} width={20} />
+                            <FontAwesomeIcon className={classes.socialLink} height={20} icon={faBehance} width={20} />
                         </li>
                         <li>
-                            <FontAwesomeIcon height={20} icon={faFacebookF} width={20} />
+                            <FontAwesomeIcon className={classes.socialLink} height={20} icon={faFacebookF} width={20} />
                         </li>
                         <li>
-                            <FontAwesomeIcon height={20} icon={faGoogle} width={20} />
+                            <FontAwesomeIcon className={classes.socialLink} height={20} icon={faGoogle} width={20} />
                         </li>
                         <li>
-                            <FontAwesomeIcon height={20} icon={faSkype} width={20} />
+                            <FontAwesomeIcon className={classes.socialLink} height={20} icon={faSkype} width={20} />
                         </li>
                         <li>
-                            <FontAwesomeIcon height={20} icon={faTwitter} width={20} />
+                            <FontAwesomeIcon className={classes.socialLink} height={20} icon={faTwitter} width={20} />
                         </li>
                     </ul>
                 </div>
