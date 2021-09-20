@@ -11,14 +11,14 @@ export const WishlistPageFragment = gql`
         visibility
     }
 `;
-
+// name
+// visibility
 export const WishlistFragment = gql`
     fragment WishlistFragment on Wishlist {
         id
         items_count
         sharing_code
-        name
-        visibility
+
         items_v2 {
             items {
                 id

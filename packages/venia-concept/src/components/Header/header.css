@@ -4,6 +4,7 @@
     display: grid;
     grid-auto-columns: 100%;
     justify-items: center;
+    position: relative;
     top: 0;
     width: 100%;
     z-index: 10;
@@ -40,7 +41,7 @@
 /* Custom */
 
 .sticky {
-    background-color: rgba(255, 255, 255, .95);
+    background-color: var(--drexel-global-transparent-white);
     position: sticky;
     top: -1px;
 }

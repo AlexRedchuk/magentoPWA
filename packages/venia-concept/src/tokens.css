@@ -42,6 +42,7 @@
     --venia-global-color-teal-dark: var(--venia-global-color-blue-600);
     --venia-global-color-teal-light: var(--venia-global-color-gray-100);
     --drexel-global-link-color: #04b38d;
+    --drexel-global-transparent-white: rgba(255, 255, 255, .95);
 
     /* color by semantics */
     --venia-global-color-background: var(--venia-global-color-gray-50);

@@ -31,7 +31,7 @@ const AccountTrigger = props => {
     const classes = useStyle(defaultClasses, props.classes);
     const rootClassName = accountMenuIsOpen ? classes.root_open : classes.root;
     const { formatMessage } = useIntl();
-
+    console.log("ACcount Trigger");
     return (
         <Fragment>
             <div className={rootClassName} ref={accountMenuTriggerRef}>

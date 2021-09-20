@@ -16,7 +16,7 @@ import defaultClasses from './header.css';
 import PageLoadingIndicator from '@magento/venia-ui/lib/components/PageLoadingIndicator';
 import StoreSwitcher from '@magento/venia-ui/lib/components/Header/storeSwitcher';
 import CurrencySwitcher from '@magento/venia-ui/lib/components/Header/currencySwitcher';
-import MegaMenu from '@magento/venia-ui/lib/components/MegaMenu';
+import MegaMenu from '../MegaMenu';
 import { useIntl } from 'react-intl';
 
 const SearchBar = React.lazy(() => import('@magento/venia-ui/lib/components/SearchBar'));
@@ -38,7 +38,7 @@ const Header = props => {
         if (headerRef.current) {
             observer.observe(headerRef.current);
         }
-    }, [classes.sticky]);
+    }, []);
 
     const {
         handleSearchTriggerClick,
